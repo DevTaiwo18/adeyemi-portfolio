@@ -74,22 +74,6 @@ const Header = () => {
                     >
                         Portfolio
                     </NavLink>
-                    <NavLink
-                        to="/cv"
-                        className={({ isActive }) =>
-                            isActive
-                                ? "text-amber-400 font-medium px-4 py-2 rounded-md"
-                                : "text-gray-300 hover:text-amber-400 px-4 py-2 rounded-md transition-colors duration-300"
-                        }
-                    >
-                        CV
-                    </NavLink>
-                    <NavLink
-                        to="/contact"
-                        className="ml-2 bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium px-5 py-2 rounded-md transition-colors duration-300"
-                    >
-                        Contact Me
-                    </NavLink>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -146,24 +130,6 @@ const Header = () => {
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Portfolio
-                        </NavLink>
-                        <NavLink
-                            to="/cv"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "block text-amber-400 font-medium py-2"
-                                    : "block text-gray-300 hover:text-amber-400 py-2 transition-colors duration-300"
-                            }
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            CV
-                        </NavLink>
-                        <NavLink
-                            to="/contact"
-                            className="block bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium px-4 py-2 rounded-md transition-colors duration-300 mt-4"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Contact Me
                         </NavLink>
                     </div>
                 </div>

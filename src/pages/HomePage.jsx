@@ -1,5 +1,8 @@
 import React from 'react';
 import Hero from '../components/Hero';
+import Intro from '../components/Intro';
+import WhatIDo from '../components/WhatIDo';
+import Contact from '../components/Contact';
 
 const HomePage = () => {
   return (
@@ -7,15 +10,14 @@ const HomePage = () => {
       {/* Hero Section */}
       <Hero />
       
-      {/* You can add more sections below */}
-      {/* 
-      Examples:
-      <Services />
-      <FeaturedProjects />
-      <Testimonials />
-      <Skills />
-      <LatestBlog />
-      */}
+      {/* Introduction Section */}
+      <Intro />
+      
+      {/* What I Do Section */}
+      <WhatIDo />
+      
+      {/* Contact/Hire Me Section */}
+      <Contact />
     </div>
   );
 };

@@ -10,7 +10,6 @@ const Hero = () => {
 
   const professions = [
     "MERN Stack Developer",
-    "Flutter App Developer",
     "Frontend Engineer",
     "Backend Developer",
     "Tech Solutions Expert"
@@ -65,7 +64,7 @@ const Hero = () => {
             </span>
           </div>
           <p className="text-gray-600 mb-6 leading-relaxed max-w-lg">
-            I craft modern, responsive web and mobile applications using the MERN stack and Flutter.
+            I craft modern, responsive web applications using the MERN stack.
             With a strong focus on both frontend and backend development, I deliver tailored digital
             solutions that drive real impact and solve business challenges.
           </p>
@@ -75,7 +74,7 @@ const Hero = () => {
               to="/portfolio"
               className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-medium px-6 py-3 rounded-md transition-colors duration-300 inline-flex items-center"
             >
-              View My Work
+              Portfolio
               <svg
                 className="w-4 h-4 ml-2"
                 fill="none"
@@ -91,12 +90,12 @@ const Hero = () => {
                 ></path>
               </svg>
             </Link>
-            <Link
-              to="/contact"
+            <a
+              href="mailto:adeyemitaiwo24434@gmail.com?subject=Project%20Inquiry&body=Hi%20Adeyemi,%0A%0AI'm%20interested%20in%20discussing%20a%20potential%20project%20with%20you.%0A%0AProject%20details:%0A%0A"
               className="bg-gray-800 hover:bg-gray-900 text-white font-medium px-6 py-3 rounded-md transition-colors duration-300"
             >
-              Contact Me
-            </Link>
+              Hire Me
+            </a>
           </div>
         </div>
 
