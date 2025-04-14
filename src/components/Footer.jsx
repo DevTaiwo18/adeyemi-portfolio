@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from "/src/assets/Black Simple Personal Logo.png"
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ const Footer = () => {
                     <div className="col-span-1">
                         <div className="flex items-center mb-4">
                             <img
-                                src="/src/assets/Black Simple Personal Logo.png"
+                                src={Logo}
                                 alt="Adeyemi Taiwo Logo"
                                 className="h-10 w-auto mr-3"
                             />
