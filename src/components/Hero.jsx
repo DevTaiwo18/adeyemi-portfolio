@@ -9,12 +9,13 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   const professions = [
-    "Full Stack Developer",
-    "Frontend Engineer", 
+    "MERN Stack Developer",
+    "Flutter App Developer",
+    "Frontend Engineer",
     "Backend Developer",
-    "React Specialist",
-    "JavaScript Expert"
+    "Tech Solutions Expert"
   ];
+  
 
   useEffect(() => {
     const handleTyping = () => {
