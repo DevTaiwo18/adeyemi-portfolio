@@ -15,15 +15,15 @@ const Hero = () => {
     "Backend Developer",
     "Tech Solutions Expert"
   ];
-  
+
 
   useEffect(() => {
     const handleTyping = () => {
       const current = loopNum % professions.length;
       const fullText = professions[current];
 
-      setDisplayText(isDeleting 
-        ? fullText.substring(0, displayText.length - 1) 
+      setDisplayText(isDeleting
+        ? fullText.substring(0, displayText.length - 1)
         : fullText.substring(0, displayText.length + 1)
       );
 
@@ -37,7 +37,7 @@ const Hero = () => {
       // If completed writing the word
       if (!isDeleting && displayText === fullText) {
         setTimeout(() => setIsDeleting(true), 1500); // Wait before starting to delete
-      } 
+      }
       // If deleted the word
       else if (isDeleting && displayText === '') {
         setIsDeleting(false);
@@ -65,10 +65,11 @@ const Hero = () => {
             </span>
           </div>
           <p className="text-gray-600 mb-6 leading-relaxed max-w-lg">
-            I build responsive, user-friendly web applications with modern technologies.
-            Specializing in both frontend and backend development to create seamless
-            digital experiences that solve real-world problems.
+            I craft modern, responsive web and mobile applications using the MERN stack and Flutter.
+            With a strong focus on both frontend and backend development, I deliver tailored digital
+            solutions that drive real impact and solve business challenges.
           </p>
+
           <div className="flex flex-wrap gap-4">
             <Link
               to="/portfolio"
@@ -104,7 +105,7 @@ const Hero = () => {
           <div className="relative">
             {/* Background decorative element */}
             <div className="absolute -z-10 top-8 -right-8 w-64 h-64 bg-amber-400 rounded-full opacity-20"></div>
-            
+
             {/* Profile image */}
             <div className="relative z-10 h-72 w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 overflow-hidden rounded-full border-4 border-amber-500 shadow-xl">
               <img

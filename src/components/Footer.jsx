@@ -21,9 +21,10 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-gray-400 mb-6 max-w-md">
-                            Full Stack Developer skilled in creating responsive and user-friendly web applications.
-                            Experienced with both frontend and backend technologies to deliver complete, end-to-end solutions.
+                            Full Stack Developer passionate about building efficient, scalable, and visually engaging web and mobile applications.
+                            Proficient in both frontend and backend technologies, delivering complete end-to-end solutions tailored to user and business needs.
                         </p>
+
                         <div className="flex space-x-4 mb-6 md:mb-0">
                             <a href="https://linkedin.com/in/adeyemi-taiwo-5892082b0/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
                                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
