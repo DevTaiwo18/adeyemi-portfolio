@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import HeroImage from "/src/assets/Profile three.jpg"
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -106,7 +107,7 @@ const Hero = () => {
             {/* Profile image */}
             <div className="relative z-10 h-72 w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 overflow-hidden rounded-full border-4 border-amber-500 shadow-xl">
               <img
-                src="/src/assets/Profile three.jpg" 
+                src={HeroImage}
                 alt="Adeyemi Taiwo"
                 className="w-full h-full object-cover"
                 onError={(e) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from "/src/assets/Black Simple Personal Logo.png"
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ const Header = () => {
                 <div className="flex items-center">
                     <NavLink to="/" className="flex items-center group">
                         <img
-                            src="/src/assets/Black Simple Personal Logo.png"
+                            src={Logo}
                             alt="Adeyemi Taiwo Logo"
                             className="h-10 w-auto mr-3 transition-transform duration-300 group-hover:scale-110"
                         />
