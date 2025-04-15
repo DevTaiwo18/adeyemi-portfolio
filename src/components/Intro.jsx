@@ -3,6 +3,25 @@ import { Link } from 'react-router-dom';
 import IntroImage from "/src/assets/Profile two.jpg";
 
 const Intro = () => {
+    const calculateExperience = () => {
+        const startDate = new Date('July 1, 2023');
+        const currentDate = new Date();
+        
+        const diffInMilliseconds = currentDate - startDate;
+        const diffInMonths = diffInMilliseconds / (1000 * 60 * 60 * 24 * 30.44); 
+        
+        const years = Math.floor(diffInMonths / 12);
+        const months = Math.floor(diffInMonths % 12);
+        
+        if (years === 0) {
+            return `${months} months`;
+        } else if (months === 0) {
+            return `${years} year${years > 1 ? 's' : ''}`;
+        } else {
+            return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`;
+        }
+    };
+
     return (
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-6">
@@ -14,7 +33,7 @@ const Intro = () => {
                         </h1>
 
                         <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Hi, I'm a <strong>Full Stack Developer</strong> with <strong>2 years of hands-on experience</strong> building modern, responsive, and scalable <strong>web applications</strong>. I specialize in creating seamless frontend experiences with <strong>React</strong> and robust backend systems using <strong>Node.js</strong> and <strong>MongoDB</strong>.
+                            Hi, I'm a <strong>Full Stack Developer</strong> with <strong>{calculateExperience()} of hands-on experience</strong> building modern, responsive, and scalable <strong>web applications</strong>. I specialize in creating seamless frontend experiences with <strong>React</strong> and robust backend systems using <strong>Node.js</strong> and <strong>MongoDB</strong>.
                             <br /><br />
                             Whether it's a website, dashboard, or web application, I bring ideas to life through <strong>clean code</strong> and <strong>thoughtful design</strong>. Let's build something impactful together.
                         </p>

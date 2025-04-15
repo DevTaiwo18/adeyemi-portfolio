@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import CVPage from './pages/CVPage';
 import NotFoundPage from './pages/NotFoundPage';
+import Sucess from './components/Sucess';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/cv" element={<CVPage />} />
+            <Route path="/sucess" element={<Sucess />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
