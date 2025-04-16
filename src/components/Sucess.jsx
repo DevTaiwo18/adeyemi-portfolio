@@ -7,7 +7,7 @@ const Success = () => {
   
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-8 flex justify-center">
             <div className="rounded-full bg-green-100 p-4">

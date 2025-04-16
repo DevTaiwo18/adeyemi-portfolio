@@ -35,7 +35,7 @@ const WhatIDo = () => {
   return (
     <section className="py-16 bg-gray-900" id="services">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-2 sm:px-0">
           {/* Section header - now left aligned */}
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-white">
