@@ -10,19 +10,19 @@ const PortfolioPage = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               My Projects
             </h1>
           </div>
 
-          {/* Tab navigation - styled to match your site */}
-          <div className="flex justify-center mb-8 border-b border-gray-200">
+          {/* Tab navigation - updated with transparent background and smaller margins */}
+          <div className="flex justify-center mb-6 border-b border-gray-200">
             <button
-              className={`px-6 py-3 font-medium text-lg relative ${
+              className={`px-5 py-2 font-medium text-lg relative transition-all duration-300 mx-1 ${
                 activeTab === 'portfolio' 
-                  ? 'text-amber-500' 
-                  : 'text-gray-700 hover:text-gray-900'
+                  ? 'text-amber-500 bg-amber-50 bg-opacity-40 rounded-t-lg' 
+                  : 'text-gray-700 hover:text-amber-400 hover:bg-amber-50 hover:bg-opacity-20 rounded-t-lg'
               }`}
               onClick={() => setActiveTab('portfolio')}
             >
@@ -32,14 +32,14 @@ const PortfolioPage = () => {
               )}
             </button>
             <button
-              className={`px-6 py-3 font-medium text-lg relative ${
+              className={`px-5 py-2 font-medium text-lg relative transition-all duration-300 mx-1 ${
                 activeTab === 'learning' 
-                  ? 'text-amber-500' 
-                  : 'text-gray-700 hover:text-gray-900'
+                  ? 'text-amber-500 bg-amber-50 bg-opacity-40 rounded-t-lg' 
+                  : 'text-gray-700 hover:text-amber-400 hover:bg-amber-50 hover:bg-opacity-20 rounded-t-lg'
               }`}
               onClick={() => setActiveTab('learning')}
             >
-              Learning Projects
+              Practice Projects
               {activeTab === 'learning' && (
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-amber-500"></div>
               )}
