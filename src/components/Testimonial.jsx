@@ -10,7 +10,7 @@ const Testimonial = () => {
     },
     {
       id: 2,
-      quote: "Taiwo is the kind of teammate you want on your side—reliable, talented, and genuinely invested in the people he works with. You always feel like you're building something meaningful with him, not just ticking off tasks.",
+      quote: "Taiwo is the kind of teammate you want on your side reliable, talented, and genuinely invested in the people he works with. You always feel like you're building something meaningful with him, not just ticking off tasks.",
       name: "Gbolahan Adekola",
       role: "Colleague"
     },
