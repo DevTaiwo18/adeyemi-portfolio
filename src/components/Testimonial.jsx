@@ -4,23 +4,24 @@ const Testimonial = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "I've had the privilege of watching Taiwo Adeyemi grow from a tech student into a true expert in his field. His journey has been nothing short of inspiring. Taiwo combines deep technical expertise with integrity, discipline, and a passion for excellence. He's not only technically sound but also stands out for his remarkable character and work ethic. Working with Taiwo means working with someone who takes ownership, delivers beyond expectations, and lifts others while rising. I wholeheartedly recommend Taiwo to anyone in need of a reliable, skilled, and outstanding professional to work with. He's truly a gem in the tech space.",
+      quote: "I've watched Taiwo grow into a skilled professional with strong integrity, discipline, and passion. He consistently delivers beyond expectations and uplifts those around him. A true gem in the tech space.",
       name: "Mercy Ajibade",
       role: "Manager, SQI College of ICT"
     },
     {
       id: 2,
-      quote: "Taiwo is the kind of teammate you want on your side reliable, talented, and genuinely invested in the people he works with. You always feel like you're building something meaningful with him, not just ticking off tasks.",
+      quote: "Taiwo is the kind of teammate you want on your side—reliable, talented, and genuinely invested in the people he works with. You always feel like you're building something meaningful with him, not just ticking off tasks.",
       name: "Gbolahan Adekola",
       role: "Colleague"
     },
     {
       id: 3,
-      quote: "TAIWO is a very talented and hardworking developer. He gets the work done and I consider him an artist with code as his work tool.",
+      quote: "Taiwo is a very talented and hardworking developer. He gets the work done and I consider him an artist with code as his work tool.",
       name: "Ahmed Bolarinwa",
       role: "Instructor"
     }
   ];
+
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -57,13 +58,13 @@ const Testimonial = () => {
           {/* Desktop View - Elegant sliding showcase */}
           <div className="hidden md:block relative overflow-hidden">
             <div className="mb-12 relative bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${activeIndex * 100}%)` }}
               >
                 {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={testimonial.id} 
+                  <div
+                    key={testimonial.id}
                     className="w-full flex-shrink-0 p-12 flex flex-col"
                   >
                     <div className="mb-8 flex">
@@ -79,7 +80,7 @@ const Testimonial = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="mt-auto flex items-center">
                       <div className="h-14 w-14 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 flex items-center justify-center text-gray-900 font-bold text-xl">
                         {testimonial.name.charAt(0)}
@@ -92,9 +93,9 @@ const Testimonial = () => {
                   </div>
                 ))}
               </div>
-              
+
               {/* Navigation arrows */}
-              <button 
+              <button
                 onClick={prevTestimonial}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-amber-500 text-gray-900 p-3 rounded-full shadow-lg hover:bg-amber-400 transition-colors"
                 aria-label="Previous testimonial"
@@ -103,8 +104,8 @@ const Testimonial = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              
-              <button 
+
+              <button
                 onClick={nextTestimonial}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-amber-500 text-gray-900 p-3 rounded-full shadow-lg hover:bg-amber-400 transition-colors"
                 aria-label="Next testimonial"
@@ -114,18 +115,17 @@ const Testimonial = () => {
                 </svg>
               </button>
             </div>
-            
+
             {/* Indicator dots */}
             <div className="flex justify-center space-x-3">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToTestimonial(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === activeIndex 
-                      ? 'w-10 h-3 bg-amber-500' 
-                      : 'w-3 h-3 bg-gray-300 hover:bg-amber-300'
-                  }`}
+                  className={`transition-all duration-300 rounded-full ${index === activeIndex
+                    ? 'w-10 h-3 bg-amber-500'
+                    : 'w-3 h-3 bg-gray-300 hover:bg-amber-300'
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
@@ -156,10 +156,10 @@ const Testimonial = () => {
                   <p className="text-amber-400">{testimonials[activeIndex].role}</p>
                 </div>
               </div>
-              
+
               {/* Mobile navigation controls */}
               <div className="flex justify-between items-center mt-6">
-                <button 
+                <button
                   onClick={prevTestimonial}
                   className="bg-gray-800 hover:bg-gray-700 text-amber-500 p-2 rounded-lg transition-colors"
                 >
@@ -167,21 +167,20 @@ const Testimonial = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                
+
                 <div className="flex space-x-2">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
-                      className={`rounded-full transition-all duration-300 ${
-                        index === activeIndex ? 'bg-amber-500 w-6 h-2' : 'bg-gray-600 w-2 h-2'
-                      }`}
+                      className={`rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-amber-500 w-6 h-2' : 'bg-gray-600 w-2 h-2'
+                        }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
                 </div>
-                
-                <button 
+
+                <button
                   onClick={nextTestimonial}
                   className="bg-gray-800 hover:bg-gray-700 text-amber-500 p-2 rounded-lg transition-colors"
                 >
