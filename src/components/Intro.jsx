@@ -11,15 +11,8 @@ const Intro = () => {
         const diffInMonths = diffInMilliseconds / (1000 * 60 * 60 * 24 * 30.44); 
         
         const years = Math.floor(diffInMonths / 12);
-        const months = Math.floor(diffInMonths % 12);
         
-        if (years === 0) {
-            return `${months} months`;
-        } else if (months === 0) {
-            return `${years} year${years > 1 ? 's' : ''}`;
-        } else {
-            return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`;
-        }
+        return `${years}+ year${years > 1 ? 's' : ''}`;
     };
 
     return (
