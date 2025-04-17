@@ -9,6 +9,7 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   const professions = [
+    "Full Stack Developer",
     "MERN Stack Developer",
     "Frontend Engineer",
     "Backend Developer",
