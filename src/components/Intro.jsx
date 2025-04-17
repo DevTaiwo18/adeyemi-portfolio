@@ -39,7 +39,7 @@ const Intro = () => {
                         </p>
 
                         <Link
-                            to="/cv"
+                            to="#"
                             className="animate-bounce inline-flex items-center justify-center px-10 py-4 font-medium text-white bg-amber-500 hover:bg-amber-600 rounded-md shadow-md transition-colors duration-300"
                         >
                             <span className="flex items-center">

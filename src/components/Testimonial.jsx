@@ -4,18 +4,24 @@ const Testimonial = () => {
   const testimonials = [
     {
       id: 1,
+      quote: "Taiwo is an exceptional human. He has no ego, does things the right way, and is truly trustworthy. One thing I can say is that I’ve never met anyone like him. His skills are legendary, and his work ethic is above the rest. If you choose to work with Taiwo, you won’t be making the wrong decision.",
+      name: "Kameron Seabrook",
+      role: "CEO, Co-founder of OBAI"
+    },    
+    {
+      id: 2,
       quote: "I've watched Taiwo grow into a skilled professional with strong integrity, discipline, and passion. He consistently delivers beyond expectations and uplifts those around him. A true gem in the tech space.",
       name: "Mercy Ajibade",
       role: "Manager, SQI College of ICT"
     },
     {
-      id: 2,
+      id: 3,
       quote: "Taiwo is the kind of teammate you want on your side reliable, talented, and genuinely invested in the people he works with. You always feel like you're building something meaningful with him, not just ticking off tasks.",
       name: "Gbolahan Adekola",
       role: "Colleague"
     },
     {
-      id: 3,
+      id: 4,
       quote: "Taiwo is a very talented and hardworking developer. He gets the work done and I consider him an artist with code as his work tool.",
       name: "Ahmed Bolarinwa",
       role: "Instructor"
