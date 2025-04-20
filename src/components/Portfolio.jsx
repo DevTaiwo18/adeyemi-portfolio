@@ -11,8 +11,8 @@ const Portfolio = () => {
         {
             id: 2,
             title: "Event Management System",
-            description: "A full-stack JavaScript event management platform with ticket sales, user authentication, Paystack payment, and admin control, built using the MERN stack and Context API.",
-            tags: ["JavaScript", "MongoDB", "Express", "React", "Node.js", "Context API", "Paystack"],
+            description: "A full-stack JavaScript event management platform with ticket sales, user authentication, Paystack payment, and admin control, built using the MERN stack, Tailwind CSS, and Context API.",
+            tags: ["JavaScript", "MongoDB", "Express", "React", "Node.js", "Context API", "Paystack", "Tailwind CSS"],
             image: Event,
             demoLink: "https://event-management-system-frontend.vercel.app/",
             codeLink: "https://github.com/DevTaiwo18/Event-Management-System-frontend"
@@ -20,8 +20,8 @@ const Portfolio = () => {
         {
             id: 6,
             title: "Real-time Chat Application (Dating App)",
-            description: "A dating app with private messaging, user matching, and email verification. Built with the MERN stack, Redux, and TypeScript.",
-            tags: ["React", "Socket.io", "Node.js", "MongoDB", "Redux", "TypeScript", "Nodemailer"],
+            description: "A dating app with private messaging, user matching, and email verification. Built with the MERN stack, Redux, Tailwind CSS, and TypeScript.",
+            tags: ["React", "Socket.io", "Node.js", "MongoDB", "Redux", "TypeScript", "Nodemailer", "Tailwind CSS"],
             image: Chat,
             demoLink: "https://chat-app-h1l6.vercel.app/",
             codeLink: "https://github.com/DevTaiwo18/Chat-App"
@@ -39,7 +39,7 @@ const Portfolio = () => {
             id: 5,
             title: "QuickPay VTU Platform",
             description: "A Virtual Top-Up platform for mobile recharge, data bundles, and utility payments. Includes user accounts and transaction history. Built with MERN stack, Context API, and JavaScript.",
-            tags: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+            tags: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "Tailwind CSS"],
             image: Quick,
             demoLink: "https://quick-pay-liard.vercel.app/",
             codeLink: "https://github.com/DevTaiwo18/QuickPay"
