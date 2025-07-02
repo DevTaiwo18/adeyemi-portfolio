@@ -13,7 +13,7 @@ const Numbers = () => {
 
   const finalValues = {
     projects: 45,
-    years: 1,
+    years: 2,
     clients: 10
   };
 
