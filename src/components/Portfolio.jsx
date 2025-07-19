@@ -5,9 +5,21 @@ import Acess from "./../assets/acesss.webp"
 import Chat from "./../assets/chat.webp"
 import Quick from "./../assets/quick.webp"
 import Travel from "./../assets/travel.webp"
+import CommPrep from "./../assets/CommPrep1.png";
 
 const Portfolio = () => {
     const portfolioProjects = [
+        {
+
+            id: 0,
+            title: "CommPrep – Communication Prep Tool",
+            description: "A communication training app to help users practice interview, meeting, and presentation scenarios. Features static question flow, user auth, and session-saving with personalized feedback. Built with MERN stack and Tailwind CSS.",
+            tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Static Flow"],
+            image: CommPrep,
+            demoLink: "https://commprep-frontend.vercel.app/",
+            codeLink: "https://github.com/DevTaiwo18/commprep-frontend"
+
+        },
         {
             id: 2,
             title: "Event Management System",
