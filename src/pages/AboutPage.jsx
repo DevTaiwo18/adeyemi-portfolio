@@ -13,9 +13,10 @@ const AboutPage = () => {
 
       {/* Experience Section */}
       <Experience />
-      
+
       {/* Education Section */}
       <Education />
+
 
       {/* Skills Section - Moved before Numbers */}
       <Skills />
