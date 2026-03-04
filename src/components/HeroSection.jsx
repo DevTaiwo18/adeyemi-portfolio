@@ -1,19 +1,9 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { personalInfo } from "../data/siteData";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-import Profile1 from "../assets/Profile one.jpg";
-import Profile2 from "../assets/Profile two.jpg";
-import Profile3 from "../assets/Profile three.jpg";
-import Profile4 from "../assets/Profile four.jpg";
-import Profile5 from "../assets/Profile five.jpg";
-import Profile6 from "../assets/Profile six.jpg";
-import Profile7 from "../assets/Profile seven.jpg";
-import Profile8 from "../assets/Profile eight.jpg";
-
-const profileImages = [Profile3, Profile1, Profile7, Profile5, Profile2, Profile4, Profile6, Profile8];
+import ProfileImg from "../assets/Profile three.jpg";
 
 const roles = [
   "Full-Stack Engineer",
@@ -26,9 +16,7 @@ const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [imgIndex, setImgIndex] = useState(0);
 
-  // Typing effect
   useEffect(() => {
     const currentRole = roles[roleIndex];
     let timeout;
@@ -53,14 +41,6 @@ const HeroSection = () => {
 
     return () => clearTimeout(timeout);
   }, [text, isDeleting, roleIndex]);
-
-  // Image cycling
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setImgIndex((prev) => (prev + 1) % profileImages.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -143,32 +123,21 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right — cycling profile pictures */}
+          {/* Right — single professional photo */}
           <motion.div
             className="flex justify-center md:justify-end"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Glow behind image */}
+            <div className="relative">
               <div className="absolute inset-0 bg-amber-500/10 rounded-3xl blur-2xl scale-110 pointer-events-none" />
-
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={imgIndex}
-                  src={profileImages[imgIndex]}
-                  alt="Adeyemi Taiwo"
-                  className="absolute inset-0 w-full h-full rounded-3xl object-cover border-2 border-neutral-800 shadow-2xl shadow-neutral-900"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8 }}
-                />
-              </AnimatePresence>
-
-              {/* Decorative border */}
-              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-3xl border-2 border-amber-500/20 -z-10" />
+              <img
+                src={ProfileImg}
+                alt="Adeyemi Taiwo"
+                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl object-cover border-2 border-neutral-800 shadow-2xl shadow-neutral-900"
+              />
+              <div className="absolute -bottom-3 -right-3 w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl border-2 border-amber-500/20 -z-10" />
             </div>
           </motion.div>
         </div>

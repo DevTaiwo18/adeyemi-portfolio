@@ -54,6 +54,14 @@ const Header = () => {
           <NavLink to="/portfolio" className={linkClass}>
             Portfolio
           </NavLink>
+          <a
+            href="/Adeyemi_Taiwo_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 px-5 py-2 bg-amber-500 text-neutral-950 text-sm font-semibold rounded-lg hover:bg-amber-400 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
+          >
+            Resume
+          </a>
         </nav>
 
         {/* Mobile menu button */}
@@ -87,6 +95,15 @@ const Header = () => {
             <NavLink to="/portfolio" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
               Portfolio
             </NavLink>
+            <a
+              href="/Adeyemi_Taiwo_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-amber-500 font-medium py-3 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resume
+            </a>
           </div>
         </div>
       )}

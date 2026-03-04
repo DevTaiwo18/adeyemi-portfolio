@@ -1,9 +1,7 @@
-import Reid from "../assets/reid.webp";
 import Event from "../assets/event.webp";
-import Acess from "../assets/acesss.webp";
 import Chat from "../assets/chat.webp";
 import Quick from "../assets/quick.webp";
-import Travel from "../assets/travel.webp";
+import Reid from "../assets/reid.webp";
 import CommPrep from "../assets/CommPrep1.png";
 import PumpRadar from "../assets/Screenshot 2026-03-04 at 12.38.31.png";
 
@@ -81,7 +79,9 @@ export const projects = [
     id: 7,
     title: "PumpRadar",
     description:
-      "AI-powered platform that tracks trending Solana memecoins in real time, scores them on safety and momentum, and signals when to buy, hold, and sell. Features Telegram alerts, SOL calculator, holdings tracker with P&L, and trade history.",
+      "AI-powered platform that tracks trending Solana memecoins in real time, scores them on safety and momentum, and signals when to buy, hold, and sell.",
+    caseStudy:
+      "Built with Next.js for SEO and fast server-side rendering. Chose MongoDB for flexible token schema that changes frequently. Integrated DexScreener API for real-time price data and Telegram Bot API for instant alerts, reducing user response time to market moves from minutes to seconds.",
     tags: ["Next.js", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Telegram Bot API", "DexScreener API", "Google OAuth"],
     image: PumpRadar,
     demoLink: "https://pumparadar.vercel.app/",
@@ -91,7 +91,9 @@ export const projects = [
     id: 0,
     title: "CommPrep",
     description:
-      "Communication training app for interview, meeting, and presentation practice. Features user auth, session-saving, and personalized feedback.",
+      "Communication training app for practicing interviews, meetings, and presentations with session-saving and personalized feedback.",
+    caseStudy:
+      "Used JWT authentication with refresh tokens for secure session persistence. Chose MongoDB to store flexible question flows and user progress. Implemented a static question engine rather than AI to keep costs zero while still delivering value.",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT"],
     image: CommPrep,
     demoLink: "https://commprep-frontend.vercel.app/",
@@ -102,61 +104,48 @@ export const projects = [
     title: "Event Management System",
     description:
       "Full-stack event platform with ticket sales, Paystack payment integration, user auth, and admin dashboard.",
+    caseStudy:
+      "Integrated Paystack for payment processing in the Nigerian market where Stripe isn't available. Used Context API over Redux to keep the bundle lean for a CRUD-heavy app. Built role-based admin panel for event organizers to manage attendees and revenue.",
     tags: ["React", "MongoDB", "Express", "Node.js", "Paystack", "Context API"],
     image: Event,
     demoLink: "https://event-management-system-frontend.vercel.app/",
-    codeLink:
-      "https://github.com/DevTaiwo18/Event-Management-System-frontend",
-  },
-  {
-    id: 2,
-    title: "Real-time Chat App",
-    description:
-      "Dating app with private messaging, user matching, and email verification. Built with real-time Socket.io and TypeScript.",
-    tags: ["React", "Socket.io", "Node.js", "MongoDB", "Redux", "TypeScript"],
-    image: Chat,
-    demoLink: "https://chat-app-h1l6.vercel.app/",
-    codeLink: "https://github.com/DevTaiwo18/Chat-App",
+    codeLink: "https://github.com/DevTaiwo18/Event-Management-System-frontend",
   },
   {
     id: 3,
     title: "Reid E-Commerce",
     description:
       "Fully responsive e-commerce site with product listings, cart, user auth, and Paystack payment integration.",
+    caseStudy:
+      "Built with vanilla JavaScript and Bootstrap to demonstrate strong fundamentals without framework dependency. Integrated Firebase for authentication and real-time database, and Paystack for payment processing.",
     tags: ["HTML", "CSS", "JavaScript", "Bootstrap", "Firebase", "Paystack"],
     image: Reid,
     demoLink: "https://reid-eight.vercel.app/",
     codeLink: "https://github.com/DevTaiwo18/Reid",
   },
   {
+    id: 2,
+    title: "Real-time Chat App",
+    description:
+      "Dating app with private messaging, user matching, and email verification powered by real-time WebSockets.",
+    caseStudy:
+      "Chose Socket.io over raw WebSockets for automatic reconnection and fallback support. Used Redux for global chat state management across multiple conversations. Added TypeScript to catch message schema errors at compile time rather than runtime.",
+    tags: ["React", "Socket.io", "Node.js", "MongoDB", "Redux", "TypeScript"],
+    image: Chat,
+    demoLink: "https://chat-app-h1l6.vercel.app/",
+    codeLink: "https://github.com/DevTaiwo18/Chat-App",
+  },
+  {
     id: 4,
     title: "QuickPay VTU Platform",
     description:
-      "Virtual Top-Up platform for mobile recharge, data bundles, and utility payments with transaction history.",
+      "Virtual Top-Up platform for mobile recharge, data bundles, and utility payments with full transaction history.",
+    caseStudy:
+      "Built a fintech-grade transaction system with idempotent API calls to prevent double charges. Used MongoDB for fast write-heavy transaction logs. Implemented real-time balance updates and receipt generation for a seamless payment experience.",
     tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     image: Quick,
     demoLink: "https://quick-pay-liard.vercel.app/",
     codeLink: "https://github.com/DevTaiwo18/QuickPay",
-  },
-  {
-    id: 5,
-    title: "Travefy Travel Agency",
-    description:
-      "Modern travel agency template with booking features, destination showcases, and responsive design.",
-    tags: ["HTML5", "CSS3", "JavaScript", "SCSS", "Bootstrap"],
-    image: Travel,
-    demoLink: "https://travefy.vercel.app/",
-    codeLink: "https://github.com/DevTaiwo18/Travefy",
-  },
-  {
-    id: 6,
-    title: "Access Bank Clone",
-    description:
-      "Pixel-perfect recreation of the Access Bank website focusing on responsive design and accessibility.",
-    tags: ["HTML", "CSS", "SCSS", "JavaScript", "Bootstrap"],
-    image: Acess,
-    demoLink: "https://access-project-beta.vercel.app/",
-    codeLink: "https://github.com/DevTaiwo18/Access-project",
   },
 ];
 
@@ -214,8 +203,9 @@ export const education = [
 
 export const achievements = [
   {
-    title: "2nd Place — Wema Bank Hackaholics 6.0",
+    title: "2nd Place - Wema Bank Hackaholics 6.0",
     description:
       "Built IllumiTrust, a digital verification system designed to combat identity fraud. Competed against 100+ teams.",
   },
 ];
+
