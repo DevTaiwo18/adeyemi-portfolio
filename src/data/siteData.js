@@ -35,15 +35,26 @@ export const aboutData = {
 
 export const techStack = [
   {
+    category: "Languages",
+    skills: [
+      { name: "JavaScript", color: "#F7DF1E" },
+      { name: "TypeScript", color: "#3178C6" },
+      { name: "HTML/CSS", color: "#E34F26" },
+      { name: "SASS", color: "#CC6699" },
+    ],
+  },
+  {
     category: "Frontend",
     skills: [
       { name: "React", color: "#61DAFB" },
       { name: "Next.js", color: "#FFFFFF" },
-      { name: "JavaScript", color: "#F7DF1E" },
-      { name: "TypeScript", color: "#3178C6" },
       { name: "TailwindCSS", color: "#38B2AC" },
+      { name: "Shadcn/ui", color: "#FFFFFF" },
+      { name: "Bootstrap", color: "#7952B3" },
       { name: "Redux", color: "#764ABC" },
-      { name: "HTML/CSS", color: "#E34F26" },
+      { name: "Context API", color: "#61DAFB" },
+      { name: "Vite", color: "#646CFF" },
+      { name: "Jest", color: "#C21325" },
     ],
   },
   {
@@ -54,6 +65,8 @@ export const techStack = [
       { name: "REST APIs", color: "#61DAFB" },
       { name: "JWT Auth", color: "#D63AFF" },
       { name: "Socket.io", color: "#FFFFFF" },
+      { name: "Real-time Systems", color: "#FF6B6B" },
+      { name: "API Design", color: "#38B2AC" },
     ],
   },
   {
@@ -61,15 +74,16 @@ export const techStack = [
     skills: [
       { name: "PostgreSQL", color: "#336791" },
       { name: "MongoDB", color: "#47A248" },
+      { name: "Firebase", color: "#FFCA28" },
     ],
   },
   {
     category: "Tools",
     skills: [
       { name: "Git", color: "#F05032" },
-      { name: "Firebase", color: "#FFCA28" },
       { name: "Postman", color: "#FF6C37" },
       { name: "Testing", color: "#C21325" },
+      { name: "Deployment", color: "#000000" },
     ],
   },
 ];

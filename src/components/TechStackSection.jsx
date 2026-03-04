@@ -6,13 +6,13 @@ const TechStackSection = () => {
   const container = {
     hidden: {},
     show: {
-      transition: { staggerChildren: 0.05 },
+      transition: { staggerChildren: 0.03 },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+    hidden: { opacity: 0, scale: 0.8 },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
   };
 
   return (
@@ -27,14 +27,14 @@ const TechStackSection = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="space-y-8">
           {techStack.map((group) => (
             <div key={group.category}>
               <h3 className="text-neutral-400 text-sm font-semibold uppercase tracking-wider mb-4">
                 {group.category}
               </h3>
               <motion.div
-                className="space-y-3"
+                className="flex flex-wrap gap-3"
                 variants={container}
                 initial="hidden"
                 whileInView="show"
@@ -44,13 +44,13 @@ const TechStackSection = () => {
                   <motion.div
                     key={skill.name}
                     variants={item}
-                    className="flex items-center gap-3 px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-amber-500/40 transition-all duration-300 group cursor-default"
+                    className="flex items-center gap-2.5 px-4 py-2.5 bg-neutral-900 border border-neutral-800 rounded-lg hover:border-amber-500/40 transition-all duration-300 cursor-default"
                   >
                     <div
                       className="w-2.5 h-2.5 rounded-full shrink-0"
                       style={{ backgroundColor: skill.color }}
                     />
-                    <span className="text-neutral-300 text-sm font-medium group-hover:text-neutral-50 transition-colors">
+                    <span className="text-neutral-300 text-sm font-medium hover:text-neutral-50 transition-colors">
                       {skill.name}
                     </span>
                   </motion.div>
