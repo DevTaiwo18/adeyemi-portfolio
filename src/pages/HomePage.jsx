@@ -1,28 +1,15 @@
-// In HomePage.jsx
-import React from 'react';
-import Hero from '../components/Hero';
-import Intro from '../components/Intro';
-import WhatIDo from '../components/WhatIDo';
-import Testimonial from '../components/Testimonial';
-import Contact from '../components/Contact';
+import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
+import TechStackSection from "../components/TechStackSection";
+import ContactNew from "../components/ContactNew";
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-100">
-      {/* Hero Section */}
-      <Hero />
-      
-      {/* Introduction Section */}
-      <Intro />
-      
-      {/* What I Do Section */}
-      <WhatIDo />
-
-      {/* Testimonials Section */}
-      <Testimonial />
-      
-      {/* Contact/Hire Me Section */}
-      <Contact />
+    <div className="bg-neutral-950 -mt-24 md:-mt-28">
+      <HeroSection />
+      <AboutSection />
+      <TechStackSection />
+      <ContactNew />
     </div>
   );
 };

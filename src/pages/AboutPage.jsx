@@ -1,30 +1,15 @@
-import React from 'react'
-import AboutHero from '../components/AboutHero'
-import Numbers from '../components/Numbers'
-import Skills from '../components/Skills'
-import Experience from '../components/Experience'
-import Education from '../components/Education'
+import AboutSection from "../components/AboutSection";
+import TechStackSection from "../components/TechStackSection";
+import ExperienceSection from "../components/ExperienceSection";
 
 const AboutPage = () => {
   return (
-    <div className="bg-gray-100">
-      {/* AboutHero Section */}
-      <AboutHero />
-
-      {/* Experience Section */}
-      <Experience />
-
-      {/* Education Section */}
-      <Education />
-
-
-      {/* Skills Section - Moved before Numbers */}
-      <Skills />
-
-      {/* Numbers Section */}
-      <Numbers />
+    <div className="bg-neutral-950">
+      <AboutSection />
+      <ExperienceSection />
+      <TechStackSection />
     </div>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import Logo from "/src/assets/Black Simple Personal Logo.png";
 
-const Header = () => {
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Tech Stack", href: "#tech-stack" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const HeaderNew = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -12,27 +19,33 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const linkClass = ({ isActive }) =>
-    isActive
-      ? "text-amber-500 font-medium px-4 py-2 text-sm"
-      : "text-neutral-400 hover:text-amber-500 px-4 py-2 text-sm font-medium transition-colors duration-300";
-
-  const mobileLinkClass = ({ isActive }) =>
-    isActive
-      ? "block text-amber-500 font-medium py-3 text-sm"
-      : "block text-neutral-400 hover:text-amber-500 py-3 text-sm font-medium transition-colors";
+  const handleNavClick = (e, href) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-neutral-950/95 backdrop-blur-md shadow-lg shadow-neutral-900/50 py-3"
-          : "bg-neutral-950/80 backdrop-blur-sm py-5"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center group">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center group"
+        >
           <img
             src={Logo}
             alt="Logo"
@@ -41,19 +54,20 @@ const Header = () => {
           <span className="text-xl font-bold text-neutral-50 tracking-tight">
             Adeyemi <span className="text-amber-500">Taiwo</span>
           </span>
-        </NavLink>
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          <NavLink to="/" end className={linkClass}>
-            Home
-          </NavLink>
-          <NavLink to="/about" className={linkClass}>
-            About
-          </NavLink>
-          <NavLink to="/portfolio" className={linkClass}>
-            Portfolio
-          </NavLink>
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-neutral-400 hover:text-amber-500 px-4 py-2 text-sm font-medium transition-colors duration-300"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile menu button */}
@@ -78,15 +92,16 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-neutral-900/95 backdrop-blur-md border-t border-neutral-800">
           <div className="px-6 py-4 space-y-1">
-            <NavLink to="/" end className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
-              Home
-            </NavLink>
-            <NavLink to="/about" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
-              About
-            </NavLink>
-            <NavLink to="/portfolio" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
-              Portfolio
-            </NavLink>
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="block text-neutral-400 hover:text-amber-500 py-3 text-sm font-medium transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -94,4 +109,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderNew;
