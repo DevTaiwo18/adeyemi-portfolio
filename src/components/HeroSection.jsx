@@ -56,7 +56,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden bg-neutral-950">
+    <section className="min-h-screen flex items-center relative overflow-hidden bg-neutral-950 pt-28 md:pt-0">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-amber-500/3 rounded-full blur-3xl pointer-events-none" />
@@ -105,6 +105,14 @@ const HeroSection = () => {
               >
                 View Projects
               </Link>
+              <a
+                href="/Adeyemi_Taiwo_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border border-neutral-700 text-neutral-300 font-medium rounded-lg hover:border-amber-500 hover:text-amber-500 transition-all duration-300"
+              >
+                Resume
+              </a>
               <a
                 href="mailto:adeyemitaiwo24434@gmail.com"
                 className="px-8 py-3 border border-neutral-700 text-neutral-300 font-medium rounded-lg hover:border-amber-500 hover:text-amber-500 transition-all duration-300"
