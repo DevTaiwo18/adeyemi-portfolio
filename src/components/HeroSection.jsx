@@ -109,7 +109,7 @@ const HeroSection = () => {
                 href="/Adeyemi_Taiwo_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border border-neutral-700 text-neutral-300 font-medium rounded-lg hover:border-amber-500 hover:text-amber-500 transition-all duration-300"
+                className="px-8 py-3 border border-neutral-700 text-neutral-300 font-medium rounded-lg hover:border-amber-500 hover:text-amber-500 transition-all duration-300 md:hidden"
               >
                 Resume
               </a>

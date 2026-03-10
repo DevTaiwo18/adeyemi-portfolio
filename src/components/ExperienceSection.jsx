@@ -2,6 +2,27 @@ import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { experiences, education, achievements } from "../data/siteData";
 
+const calcDuration = (period) => {
+  const [startStr, endStr] = period.split(" - ");
+  const parseDate = (str) =>
+    str.trim() === "Present"
+      ? new Date()
+      : new Date(str.trim() + " 1");
+  const start = parseDate(startStr);
+  const end = parseDate(endStr);
+  let months =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth()) +
+    1;
+  if (months < 1) return "";
+  const yrs = Math.floor(months / 12);
+  const mos = months % 12;
+  const parts = [];
+  if (yrs) parts.push(`${yrs} yr${yrs > 1 ? "s" : ""}`);
+  if (mos) parts.push(`${mos} mo${mos > 1 ? "s" : ""}`);
+  return parts.join(" ");
+};
+
 const ExperienceSection = () => {
   return (
     <SectionWrapper
@@ -42,7 +63,7 @@ const ExperienceSection = () => {
                       {exp.company}
                     </h3>
                     <span className="text-neutral-500 text-sm">
-                      {exp.period}
+                      {exp.period} · {calcDuration(exp.period)}
                     </span>
                   </div>
                   <p className="text-amber-500 font-medium">{exp.role}</p>

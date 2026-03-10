@@ -12,7 +12,7 @@ const Numbers = () => {
   const sectionRef = useRef(null);
 
   const finalValues = {
-    projects: 50,
+    projects: 60,
     years: 2,
     clients: 10
   };

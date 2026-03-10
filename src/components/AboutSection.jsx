@@ -72,7 +72,7 @@ const AboutSection = () => {
                     <p className="text-neutral-500 text-sm">Years Experience</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-bold text-amber-500">50+</p>
+                    <p className="text-3xl font-bold text-amber-500">60+</p>
                     <p className="text-neutral-500 text-sm">Projects Built</p>
                   </div>
                 </div>

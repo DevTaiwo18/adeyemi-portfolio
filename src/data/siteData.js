@@ -165,6 +165,23 @@ export const projects = [
 
 export const experiences = [
   {
+    company: "Kept House Estate Sales",
+    role: "Software Developer",
+    type: "Contract · Remote",
+    period: "Sep 2025 - Present",
+    description:
+      "Building and maintaining a full-stack estate sales platform used by real customers",
+    highlights: [
+      "Built a full e-commerce marketplace with Stripe payments, shopping cart, and order management",
+      "Developed role-based dashboards for agents, clients, and vendors with real-time project tracking",
+      "Integrated AI-powered item cataloging and pricing for estate inventory",
+      "Optimized platform performance, achieving 92/100 Google PageSpeed score through image compression, code splitting, and database indexing",
+      "Implemented security hardening with CSP headers, HSTS, and OWASP best practices",
+      "Deployed and manage production infrastructure on Vercel (frontend) and Render (backend)",
+    ],
+    technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Stripe"],
+  },
+  {
     company: "Obai",
     role: "Full Stack Engineer",
     type: "Full-time · Remote",
