@@ -165,6 +165,21 @@ export const projects = [
 
 export const experiences = [
   {
+    company: "Obai",
+    role: "Full Stack Engineer",
+    type: "Full-time · Remote",
+    period: "Sep 2024 - Present",
+    description:
+      "Contributing as a Full Stack Engineer at Obai, a U.S.-based company, primarily leading frontend development while collaborating with backend engineers to deliver scalable, production-ready web applications.",
+    highlights: [
+      "Led development of responsive, high-performance UIs using React and modern frontend best practices",
+      "Integrated RESTful APIs and ensured seamless frontend-backend communication",
+      "Implemented secure authentication flows and role-based access control (RBAC)",
+      "Optimized application performance, responsiveness, and overall user experience",
+    ],
+    technologies: ["React", "JavaScript", "TailwindCSS", "REST APIs", "JWT", "Node.js", "PostgreSQL"],
+  },
+  {
     company: "Kept House Estate Sales",
     role: "Software Developer",
     type: "Contract · Remote",
@@ -180,21 +195,6 @@ export const experiences = [
       "Deployed and manage production infrastructure on Vercel (frontend) and Render (backend)",
     ],
     technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Stripe"],
-  },
-  {
-    company: "Obai",
-    role: "Full Stack Engineer",
-    type: "Full-time · Remote",
-    period: "Sep 2024 - Present",
-    description:
-      "Contributing as a Full Stack Engineer at Obai, a U.S.-based company, primarily leading frontend development while collaborating with backend engineers to deliver scalable, production-ready web applications.",
-    highlights: [
-      "Led development of responsive, high-performance UIs using React and modern frontend best practices",
-      "Integrated RESTful APIs and ensured seamless frontend-backend communication",
-      "Implemented secure authentication flows and role-based access control (RBAC)",
-      "Optimized application performance, responsiveness, and overall user experience",
-    ],
-    technologies: ["React", "JavaScript", "TailwindCSS", "REST APIs", "JWT", "Node.js", "PostgreSQL"],
   },
   {
     company: "Upwork",

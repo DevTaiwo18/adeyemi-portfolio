@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import Sucess from "./components/Sucess";
+import CVPage from "./pages/CVPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const ScrollToTop = () => {
@@ -66,6 +67,7 @@ function AppContent() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/cv" element={<CVPage />} />
           <Route path="/sucess" element={<Sucess />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
