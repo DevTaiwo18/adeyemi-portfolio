@@ -54,9 +54,6 @@ const Header = () => {
           <NavLink to="/portfolio" className={linkClass}>
             Portfolio
           </NavLink>
-          <NavLink to="/cv" className={linkClass}>
-            CV
-          </NavLink>
           <a
             href="/Adeyemi_Taiwo_Resume.pdf"
             target="_blank"
@@ -97,9 +94,6 @@ const Header = () => {
             </NavLink>
             <NavLink to="/portfolio" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
               Portfolio
-            </NavLink>
-            <NavLink to="/cv" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
-              CV
             </NavLink>
             <a
               href="/Adeyemi_Taiwo_Resume.pdf"
