@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import Sucess from "./components/Sucess";
-import ResumePrint from "./pages/ResumePrint";
+import CVPage from "./pages/CVPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const ScrollToTop = () => {
@@ -82,7 +82,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/resume-print" element={<ResumePrint />} />
+        <Route path="/cv" element={<CVPage />} />
         <Route path="*" element={<AppContent />} />
       </Routes>
     </Router>

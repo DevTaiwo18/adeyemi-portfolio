@@ -70,10 +70,6 @@ const ExperienceSection = () => {
                   {exp.type && (
                     <p className="text-neutral-500 text-sm mb-3">{exp.type}</p>
                   )}
-                  <p className="text-neutral-400 leading-relaxed mb-4">
-                    {exp.description}
-                  </p>
-
                   {/* Highlights */}
                   {exp.highlights && (
                     <ul className="space-y-2 mb-4">
@@ -144,7 +140,7 @@ const ExperienceSection = () => {
           <h3 className="text-neutral-50 font-semibold text-xl mb-6 text-center">
             Education
           </h3>
-          <div className="space-y-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {education.map((edu, i) => (
               <motion.div
                 key={i}

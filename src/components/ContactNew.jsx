@@ -143,19 +143,6 @@ const ContactNew = () => {
           </button>
         </form>
 
-        {/* WhatsApp */}
-        <div className="flex justify-center mt-8">
-          <a
-            href={personalInfo.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
-          >
-            <FaWhatsapp className="w-5 h-5" />
-            Text me on WhatsApp
-          </a>
-        </div>
-
         {/* Social links */}
         <div className="flex items-center justify-center gap-6 mt-8">
           <a
@@ -192,6 +179,15 @@ const ContactNew = () => {
             aria-label="Twitter"
           >
             <FaTwitter className="w-5 h-5" />
+          </a>
+          <a
+            href={personalInfo.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-amber-500 transition-colors"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp className="w-5 h-5" />
           </a>
         </div>
       </div>

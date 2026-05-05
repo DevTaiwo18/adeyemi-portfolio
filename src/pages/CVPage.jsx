@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { personalInfo, experiences, education, techStack, achievements } from "../data/siteData";
 
 const CVPage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <style>{`
@@ -13,8 +16,17 @@ const CVPage = () => {
         }
       `}</style>
 
-      {/* Print button - hidden when printing */}
-      <div className="no-print flex justify-center pt-6 pb-2">
+      {/* Actions bar - hidden when printing */}
+      <div className="no-print flex items-center justify-between max-w-[780px] mx-auto px-4 pt-6 pb-2">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 text-neutral-400 hover:text-amber-500 transition-colors text-sm font-medium"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back
+        </button>
         <button
           onClick={() => window.print()}
           className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 text-neutral-950 font-semibold text-sm rounded-lg hover:bg-amber-400 transition-all duration-200"
@@ -54,9 +66,7 @@ const CVPage = () => {
           <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Summary</h2>
           <hr className="border-[#b45309] mb-3" />
           <p className="text-neutral-700">
-            Full-Stack Engineer with 2+ years of experience building scalable, production-ready web applications. Currently
-            at Obai (U.S.-based), leading frontend development and collaborating on backend systems. Strong focus on
-            performance, real-time systems, and fintech platforms. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).
+            Full-Stack Engineer with 2+ years building production systems used by 150+ real users. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).
           </p>
         </div>
 

@@ -6,8 +6,8 @@ const AboutPage = () => {
   return (
     <div className="bg-neutral-950">
       <AboutSection />
-      <ExperienceSection />
       <TechStackSection />
+      <ExperienceSection />
     </div>
   );
 };
