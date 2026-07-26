@@ -2,13 +2,14 @@ import HeroSection from "../components/HeroSection";
 import ContactNew from "../components/ContactNew";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { getYearsExperienceLabel } from "../utils/experience";
 
 const StatsStrip = () => (
   <section className="bg-neutral-900/50 border-y border-neutral-800 py-12">
     <div className="max-w-6xl mx-auto px-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {[
-          { value: "2+", label: "Years Experience" },
+          { value: getYearsExperienceLabel(), label: "Years Experience" },
           { value: "150+", label: "Users in Production" },
           { value: "2", label: "US Remote Roles" },
           { value: "Top 2", label: "Wema Bank Hackathon" },

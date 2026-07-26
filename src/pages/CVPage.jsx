@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { personalInfo, experiences, education, techStack, achievements } from "../data/siteData";
+import { getYearsExperienceLabel } from "../utils/experience";
 
 const CVPage = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const CVPage = () => {
           <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Summary</h2>
           <hr className="border-[#b45309] mb-3" />
           <p className="text-neutral-700">
-            Full-Stack Engineer with 2+ years building production systems used by 150+ real users. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).
+            Full-Stack Engineer with {getYearsExperienceLabel()} years building production systems used by 150+ real users. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { aboutData } from "../data/siteData";
+import { getYearsExperienceLabel } from "../utils/experience";
 
 const AboutSection = () => {
   return (
@@ -34,7 +35,7 @@ const AboutSection = () => {
             <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { value: "2+", label: "Years Experience" },
+                  { value: getYearsExperienceLabel(), label: "Years Experience" },
                   { value: "150+", label: "Users in Production" },
                   { value: "2", label: "US Remote Roles" },
                   { value: "Top 2", label: "Wema Bank Hackathon" },

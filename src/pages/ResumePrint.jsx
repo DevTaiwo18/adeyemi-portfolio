@@ -1,4 +1,5 @@
 import { personalInfo, experiences, education, techStack, achievements } from "../data/siteData";
+import { getYearsExperienceLabel } from "../utils/experience";
 
 const ResumePrint = () => {
   return (
@@ -60,7 +61,7 @@ const ResumePrint = () => {
         {/* Summary */}
         <Section title="Summary">
           <p>
-            Full-Stack Engineer with 2+ years of experience building scalable, production-ready web applications. Currently
+            Full-Stack Engineer with {getYearsExperienceLabel()} years of experience building scalable, production-ready web applications. Currently
             at Obai (U.S.-based), leading frontend development and collaborating on backend systems. Strong focus on
             performance, real-time systems, and fintech platforms. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).
           </p>
