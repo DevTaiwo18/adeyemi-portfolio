@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { personalInfo } from "../data/siteData";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import ProfileImg from "../assets/Profile three.jpg";
+import ProfileImg from "../assets/Profile nine.jpg";
 
 const roles = [
   "Full-Stack Engineer",
@@ -143,7 +143,7 @@ const HeroSection = () => {
               <img
                 src={ProfileImg}
                 alt="Adeyemi Taiwo"
-                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl object-cover border-2 border-neutral-800 shadow-2xl shadow-neutral-900"
+                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl object-cover object-[center_20%] border-2 border-neutral-800 shadow-2xl shadow-neutral-900"
               />
               <div className="absolute -bottom-3 -right-3 w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl border-2 border-amber-500/20 -z-10" />
             </div>
