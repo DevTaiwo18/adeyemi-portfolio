@@ -93,9 +93,6 @@ const Header = () => {
             <NavLink to="/cv" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
               CV
             </NavLink>
-            <NavLink to="/cv" className={mobileLinkClass} onClick={() => setIsMenuOpen(false)}>
-              CV
-            </NavLink>
           </div>
         </div>
       )}

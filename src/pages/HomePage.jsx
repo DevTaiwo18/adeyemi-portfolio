@@ -7,7 +7,7 @@ import { getYearsExperienceLabel } from "../utils/experience";
 const StatsStrip = () => (
   <section className="bg-neutral-900/50 border-y border-neutral-800 py-12">
     <div className="max-w-6xl mx-auto px-6">
-      <div className="grid grid-cols-3 gap-8 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
         {[
           { value: getYearsExperienceLabel(), label: "Years Experience" },
           { value: "2", label: "US Remote Roles" },
@@ -19,9 +19,10 @@ const StatsStrip = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
+            className="bg-neutral-800/50 rounded-xl p-4"
           >
-            <p className="text-3xl md:text-4xl font-bold text-amber-500">{stat.value}</p>
-            <p className="text-neutral-500 text-sm mt-1">{stat.label}</p>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-500">{stat.value}</p>
+            <p className="text-neutral-500 text-xs sm:text-sm mt-1">{stat.label}</p>
           </motion.div>
         ))}
       </div>

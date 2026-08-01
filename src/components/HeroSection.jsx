@@ -56,7 +56,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden bg-neutral-950 pt-28 md:pt-0">
+    <section className="md:min-h-screen flex items-center relative overflow-hidden bg-neutral-950 pt-28 pb-16 md:pt-0 md:pb-0">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-amber-500/3 rounded-full blur-3xl pointer-events-none" />
