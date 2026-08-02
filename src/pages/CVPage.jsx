@@ -120,7 +120,7 @@ const CVPage = () => {
               <div key={i} className="flex justify-between items-start">
                 <div>
                   <p className="font-bold text-neutral-900">{edu.institution}</p>
-                  <p className="text-neutral-600">{edu.degree} (Grade: {edu.grade})</p>
+                  <p className="text-neutral-600">{edu.degree}{edu.grade && ` (Grade: ${edu.grade})`}</p>
                 </div>
                 <span className="text-neutral-500 text-xs whitespace-nowrap ml-4">{edu.period}</span>
               </div>

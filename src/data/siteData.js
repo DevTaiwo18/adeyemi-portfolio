@@ -231,6 +231,20 @@ export const education = [
     description:
       "Excelled academically and held the position of Senior Boy. Cultivated a deep interest in coding and computer science, independently exploring programming languages and technologies.",
   },
+  {
+    institution: "Adejare International School",
+    degree: "West African Senior School Certificate (WAEC)",
+    period: "2023",
+    grade: "",
+    description: "",
+  },
+  {
+    institution: "Adejare International School",
+    degree: "National Examinations Council (NECO)",
+    period: "2022",
+    grade: "",
+    description: "",
+  },
 ];
 
 export const achievements = [

@@ -116,7 +116,7 @@ const ResumePrint = () => {
             <div key={i} style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
               <div>
                 <p style={{ fontWeight: "bold" }}>{edu.institution}</p>
-                <p style={{ color: "#555" }}>{edu.degree} (Grade: {edu.grade})</p>
+                <p style={{ color: "#555" }}>{edu.degree}{edu.grade && ` (Grade: ${edu.grade})`}</p>
               </div>
               <span style={{ color: "#777", fontSize: "11px", whiteSpace: "nowrap", marginLeft: "12px" }}>{edu.period}</span>
             </div>

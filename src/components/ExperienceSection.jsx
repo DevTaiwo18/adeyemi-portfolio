@@ -164,9 +164,11 @@ const ExperienceSection = () => {
                     Grade: {edu.grade}
                   </p>
                 )}
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  {edu.description}
-                </p>
+                {edu.description && (
+                  <p className="text-neutral-400 text-sm leading-relaxed">
+                    {edu.description}
+                  </p>
+                )}
               </motion.div>
             ))}
           </div>
