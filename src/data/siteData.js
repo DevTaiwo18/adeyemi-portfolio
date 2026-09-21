@@ -70,11 +70,28 @@ export const techStack = [
     ],
   },
   {
+    category: "Mobile",
+    skills: [
+      { name: "Flutter", color: "#02569B" },
+      { name: "Dart", color: "#0175C2" },
+    ],
+  },
+  {
     category: "Database",
     skills: [
       { name: "PostgreSQL", color: "#336791" },
       { name: "MongoDB", color: "#47A248" },
       { name: "Firebase", color: "#FFCA28" },
+      { name: "Supabase", color: "#3ECF8E" },
+    ],
+  },
+  {
+    category: "AI",
+    skills: [
+      { name: "Anthropic API", color: "#D97757" },
+      { name: "Claude Code", color: "#D97757" },
+      { name: "OpenAI API", color: "#00A67E" },
+      { name: "Prompt Engineering", color: "#8B5CF6" },
     ],
   },
   {
@@ -170,10 +187,11 @@ export const experiences = [
     type: "Full-time · Remote",
     period: "Sep 2024 - Present",
     description:
-      "Contributing as a Full Stack Engineer at Obai, a U.S.-based company, primarily leading frontend development while collaborating with backend engineers to deliver scalable, production-ready web applications.",
+      "Contributing as a Full Stack Engineer at Obai, a U.S.-based AI company building an AI toolbox for vehicle valuation and claims, leading frontend development while collaborating with backend engineers on computer vision pipelines and automated damage detection features.",
     highlights: [
       "Built and maintained a production platform actively used by 50+ appraisers across the U.S.",
       "Delivered 20+ major UI features end-to-end using React, improving workflow efficiency for daily active users",
+      "Worked on computer vision-powered features for automated vehicle damage detection and photo labeling",
       "Reduced API integration errors by standardizing request handling and error boundary patterns across the frontend",
       "Implemented RBAC authentication flow supporting 3 distinct user roles with zero reported auth incidents",
       "Improved application responsiveness across mobile and desktop, reducing reported UI bugs by 90%",
@@ -251,7 +269,7 @@ export const achievements = [
   {
     title: "2nd Place - Wema Bank Hackaholics 6.0",
     description:
-      "Built IllumiTrust, a digital verification system designed to combat identity fraud. Competed against 100+ teams.",
+      "Built IllumiTrust, a bank-facing KYC verification platform combining BVN verification with GPS-based address confirmation to cut the cost and delay of customer onboarding. Competed against 100+ teams.",
   },
 ];
 

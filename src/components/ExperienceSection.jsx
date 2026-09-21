@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { experiences, education, achievements } from "../data/siteData";
+
+const HIGHLIGHT_PREVIEW_COUNT = 3;
 
 const calcDuration = (period) => {
   const [startStr, endStr] = period.split(" - ");
@@ -21,6 +24,83 @@ const calcDuration = (period) => {
   if (yrs) parts.push(`${yrs} yr${yrs > 1 ? "s" : ""}`);
   if (mos) parts.push(`${mos} mo${mos > 1 ? "s" : ""}`);
   return parts.join(" ");
+};
+
+const ExperienceCard = ({ exp, index }) => {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = exp.highlights && exp.highlights.length > HIGHLIGHT_PREVIEW_COUNT;
+  const visibleHighlights = expanded
+    ? exp.highlights
+    : exp.highlights?.slice(0, HIGHLIGHT_PREVIEW_COUNT);
+
+  return (
+    <motion.div
+      className="flex items-start relative"
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.15, duration: 0.5 }}
+    >
+      <div className="hidden md:block absolute left-8 transform -translate-x-1/2 mt-6">
+        <div className="w-4 h-4 bg-neutral-950 border-2 border-amber-500 rounded-full" />
+      </div>
+
+      <div className="ml-0 md:ml-16 w-full bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300 group">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+          <h3 className="text-xl font-bold text-neutral-50 group-hover:text-amber-500 transition-colors">
+            {exp.company}
+          </h3>
+          <span className="text-neutral-500 text-sm">
+            {exp.period} · {calcDuration(exp.period)}
+          </span>
+        </div>
+        <p className="text-amber-500 font-medium">{exp.role}</p>
+        {exp.type && (
+          <p className="text-neutral-500 text-sm mb-3">{exp.type}</p>
+        )}
+        {/* Highlights */}
+        {exp.highlights && (
+          <ul className="space-y-2 mb-2">
+            {visibleHighlights.map((item, j) => (
+              <li
+                key={j}
+                className="flex items-start gap-2 text-neutral-400 text-sm"
+              >
+                <span className="text-amber-500 mt-1 shrink-0">
+                  &#8250;
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {hasMore && (
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="text-amber-500 text-xs font-semibold mb-4 hover:text-amber-400 transition-colors"
+          >
+            {expanded ? "Show less" : `Show ${exp.highlights.length - HIGHLIGHT_PREVIEW_COUNT} more`}
+          </button>
+        )}
+        {!hasMore && <div className="mb-4" />}
+
+        {/* Technologies */}
+        {exp.technologies && (
+          <div className="flex flex-wrap gap-2">
+            {exp.technologies.map((tech, j) => (
+              <span
+                key={j}
+                className="px-2.5 py-1 bg-neutral-800 text-neutral-400 text-xs font-medium rounded-md"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
 };
 
 const ExperienceSection = () => {
@@ -45,63 +125,7 @@ const ExperienceSection = () => {
 
           <div className="space-y-8">
             {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                className="flex items-start relative"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
-              >
-                <div className="hidden md:block absolute left-8 transform -translate-x-1/2 mt-6">
-                  <div className="w-4 h-4 bg-neutral-950 border-2 border-amber-500 rounded-full" />
-                </div>
-
-                <div className="ml-0 md:ml-16 w-full bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300 group">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                    <h3 className="text-xl font-bold text-neutral-50 group-hover:text-amber-500 transition-colors">
-                      {exp.company}
-                    </h3>
-                    <span className="text-neutral-500 text-sm">
-                      {exp.period} · {calcDuration(exp.period)}
-                    </span>
-                  </div>
-                  <p className="text-amber-500 font-medium">{exp.role}</p>
-                  {exp.type && (
-                    <p className="text-neutral-500 text-sm mb-3">{exp.type}</p>
-                  )}
-                  {/* Highlights */}
-                  {exp.highlights && (
-                    <ul className="space-y-2 mb-4">
-                      {exp.highlights.map((item, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-2 text-neutral-400 text-sm"
-                        >
-                          <span className="text-amber-500 mt-1 shrink-0">
-                            &#8250;
-                          </span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* Technologies */}
-                  {exp.technologies && (
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, j) => (
-                        <span
-                          key={j}
-                          className="px-2.5 py-1 bg-neutral-800 text-neutral-400 text-xs font-medium rounded-md"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+              <ExperienceCard key={i} exp={exp} index={i} />
             ))}
           </div>
         </div>

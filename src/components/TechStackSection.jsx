@@ -27,7 +27,7 @@ const TechStackSection = () => {
           </h2>
         </div>
 
-        <div className="space-y-8">
+        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8">
           {techStack.map((group) => (
             <div key={group.category}>
               <h3 className="text-neutral-400 text-sm font-semibold uppercase tracking-wider mb-4">
