@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { personalInfo, experiences, education, techStack, achievements } from "../data/siteData";
-import { cvFr } from "../data/cvTranslations";
 import { getYearsExperienceLabel } from "../utils/experience";
 
 const FORMATS = {
@@ -28,50 +27,28 @@ const FORMATS = {
 const CVPage = () => {
   const navigate = useNavigate();
   const [country, setCountry] = useState("nigeria");
-  const [lang, setLang] = useState("en"); // only relevant when country === "canada"
   const format = FORMATS[country];
-  const isFrench = country === "canada" && lang === "fr";
-
-  // Reset to English if the user switches away from Canada
-  useEffect(() => {
-    if (country !== "canada") setLang("en");
-  }, [country]);
-
-  const years = getYearsExperienceLabel();
 
   const summaryText = useMemo(
     () =>
-      isFrench
-        ? cvFr.summary(years)
-        : `Full-Stack Engineer with ${years} years building production systems. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).`,
-    [isFrench, years]
+      `Full-Stack Engineer with ${getYearsExperienceLabel()} years building production systems. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).`,
+    []
   );
-
-  const labels = isFrench
-    ? cvFr.labels
-    : { summary: "Summary", experience: "Experience", skills: "Skills", education: "Education", achievements: "Achievements", tech: "Tech" };
-
-  const expList = isFrench
-    ? experiences.map((exp, i) => ({ ...exp, ...cvFr.experiences[i] }))
-    : experiences;
-
-  const eduList = isFrench ? cvFr.education : education;
-  const achList = isFrench ? cvFr.achievements : achievements;
 
   const sections = {
     summary: (
       <div className="mb-5" key="summary">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{labels.summary}</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Summary</h2>
         <hr className="border-[#b45309] mb-3" />
         <p className="text-neutral-700">{summaryText}</p>
       </div>
     ),
     experience: (
       <div className="mb-5" key="experience">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{labels.experience}</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Experience</h2>
         <hr className="border-[#b45309] mb-3" />
         <div className="space-y-5">
-          {expList.map((exp, i) => (
+          {experiences.map((exp, i) => (
             <div key={i}>
               <div className="flex justify-between items-start">
                 <div>
@@ -87,7 +64,7 @@ const CVPage = () => {
                   <li key={j}>{h}</li>
                 ))}
               </ul>
-              <p className="text-neutral-600"><span className="font-semibold">{labels.tech}:</span> {exp.technologies.join(", ")}</p>
+              <p className="text-neutral-600"><span className="font-semibold">Tech:</span> {exp.technologies.join(", ")}</p>
             </div>
           ))}
         </div>
@@ -95,7 +72,7 @@ const CVPage = () => {
     ),
     skills: (
       <div className="mb-5" key="skills">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{labels.skills}</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Skills</h2>
         <hr className="border-[#b45309] mb-3" />
         <div className="flex flex-wrap gap-1.5">
           {techStack.flatMap(cat => cat.skills).map((skill, i) => (
@@ -108,14 +85,14 @@ const CVPage = () => {
     ),
     education: (
       <div className="mb-5" key="education">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{labels.education}</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Education</h2>
         <hr className="border-[#b45309] mb-3" />
         <div className="space-y-3">
-          {eduList.map((edu, i) => (
+          {education.map((edu, i) => (
             <div key={i} className="flex justify-between items-start">
               <div>
                 <p className="font-bold text-neutral-900">{edu.institution}</p>
-                <p className="text-neutral-600">{edu.degree}{edu.grade && ` (${isFrench ? "Note" : "Grade"}: ${edu.grade})`}</p>
+                <p className="text-neutral-600">{edu.degree}{edu.grade && ` (Grade: ${edu.grade})`}</p>
               </div>
               <span className="text-neutral-500 text-xs whitespace-nowrap ml-4">{edu.period}</span>
             </div>
@@ -125,9 +102,9 @@ const CVPage = () => {
     ),
     achievements: (
       <div key="achievements">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{labels.achievements}</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Achievements</h2>
         <hr className="border-[#b45309] mb-3" />
-        {achList.map((ach, i) => (
+        {achievements.map((ach, i) => (
           <p key={i} className="text-neutral-700">
             <span className="font-bold text-neutral-900">{ach.title}</span> - {ach.description}
           </p>
@@ -173,23 +150,6 @@ const CVPage = () => {
             ))}
           </select>
 
-          {country === "canada" && (
-            <div className="flex items-center rounded-lg border border-neutral-700 overflow-hidden text-sm font-medium">
-              <button
-                onClick={() => setLang("en")}
-                className={`px-3 py-2.5 transition-colors ${lang === "en" ? "bg-amber-500 text-neutral-950" : "bg-neutral-900 text-neutral-300 hover:text-amber-500"}`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang("fr")}
-                className={`px-3 py-2.5 transition-colors ${lang === "fr" ? "bg-amber-500 text-neutral-950" : "bg-neutral-900 text-neutral-300 hover:text-amber-500"}`}
-              >
-                FR
-              </button>
-            </div>
-          )}
-
           <button
             onClick={() => window.print()}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-500 text-neutral-950 font-semibold text-sm rounded-lg hover:bg-amber-400 transition-all duration-200"
@@ -207,12 +167,10 @@ const CVPage = () => {
 
         {/* Header */}
         <div className="mb-6">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">
-            {isFrench ? cvFr.docTitle : format.docTitle}
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">{format.docTitle}</p>
           <h1 className="text-3xl font-bold text-neutral-900">{personalInfo.name}</h1>
           <p className="text-[#b45309] font-semibold mt-0.5 text-base">
-            {isFrench ? cvFr.roleTagline : "Full-Stack Engineer | React, Node.js, TypeScript | Building Scalable Web Platforms"}
+            Full-Stack Engineer | React, Node.js, TypeScript | Building Scalable Web Platforms
           </p>
 
           {/* Contact */}
