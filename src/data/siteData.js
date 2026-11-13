@@ -204,9 +204,9 @@ export const experiences = [
     type: "Contract · Remote",
     period: "Sep 2025 - Present",
     description:
-      "Building and maintaining a full-stack estate sales platform serving 100+ active users including agents, clients, and vendors.",
+      "Building and maintaining a full-stack estate sales platform serving 250+ active users including agents, clients, and vendors.",
     highlights: [
-      "Serving 100+ active users across 3 roles (agents, clients, vendors) on a live production platform",
+      "Serving 250+ active users across 3 roles (agents, clients, vendors) on a live production platform",
       "Built full e-commerce marketplace processing real Stripe transactions with cart, checkout, and order management",
       "Achieved 92/100 Google PageSpeed score through image compression, code splitting, and database indexing",
       "Integrated AI-powered item cataloging, reducing manual inventory entry time by an estimated 60%",

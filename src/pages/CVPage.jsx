@@ -31,7 +31,7 @@ const CVPage = () => {
 
   const summaryText = useMemo(
     () =>
-      `Full-Stack Engineer with ${getYearsExperienceLabel()} years building production systems. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 100-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).`,
+      `Full-Stack Engineer with ${getYearsExperienceLabel()} years building production systems. Currently at Obai (U.S.-based), having delivered 20+ features for 50+ daily active appraisers while reducing UI bugs by 90%. Built and launched a 250-user estate sales platform at Kept House with 92/100 PageSpeed and OWASP-compliant security. 2nd Place at Wema Bank Hackaholics 6.0 (100+ teams).`,
     []
   );
 
