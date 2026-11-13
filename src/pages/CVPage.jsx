@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { personalInfo, experiences, education, techStack, achievements } from "../data/siteData";
 import { getYearsExperienceLabel } from "../utils/experience";
 
@@ -7,20 +7,32 @@ const FORMATS = {
   nigeria: {
     label: "🇳🇬 Nigeria",
     docTitle: "Curriculum Vitae",
-    showPhone: true,
+    countryCode: null,
     sectionOrder: ["summary", "experience", "skills", "education", "achievements"],
+    headings: { experience: "Experience" },
+    skillsStyle: "chips",
+    includeSecondarySchool: true,
+    compact: false,
   },
   us: {
     label: "🇺🇸 United States",
     docTitle: "Resume",
-    showPhone: true,
-    sectionOrder: ["summary", "experience", "skills", "education", "achievements"],
+    countryCode: "US",
+    sectionOrder: ["summary", "skills", "experience", "education"],
+    headings: { experience: "Experience" },
+    skillsStyle: "plain",
+    includeSecondarySchool: false,
+    compact: true,
   },
   canada: {
     label: "🇨🇦 Canada",
     docTitle: "Resume",
-    showPhone: true,
-    sectionOrder: ["summary", "experience", "skills", "education", "achievements"],
+    countryCode: "CA",
+    sectionOrder: ["summary", "skills", "experience", "education", "achievements"],
+    headings: { experience: "Work Experience" },
+    skillsStyle: "plain",
+    includeSecondarySchool: false,
+    compact: false,
   },
 };
 
@@ -28,6 +40,26 @@ const CVPage = () => {
   const navigate = useNavigate();
   const [country, setCountry] = useState("nigeria");
   const format = FORMATS[country];
+
+  // US and Canada CVs pick up your current city and state/province automatically
+  // (IP-based lookup). If you are not in that country, the default location is used.
+  const [detected, setDetected] = useState(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("https://ipapi.co/json/", { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && data.city && data.region_code && data.country_code) {
+          setDetected({ city: data.city, region: data.region_code, country: data.country_code });
+        }
+      })
+      .catch(() => {});
+    return () => controller.abort();
+  }, []);
+  const location =
+    format.countryCode && detected && detected.country === format.countryCode
+      ? `${detected.city}, ${detected.region}`
+      : personalInfo.location;
 
   const summaryText = useMemo(
     () =>
@@ -45,7 +77,7 @@ const CVPage = () => {
     ),
     experience: (
       <div className="mb-5" key="experience">
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Experience</h2>
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">{format.headings.experience}</h2>
         <hr className="border-[#b45309] mb-3" />
         <div className="space-y-5">
           {experiences.map((exp, i) => (
@@ -74,13 +106,24 @@ const CVPage = () => {
       <div className="mb-5" key="skills">
         <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Skills</h2>
         <hr className="border-[#b45309] mb-3" />
-        <div className="flex flex-wrap gap-1.5">
-          {techStack.flatMap(cat => cat.skills).map((skill, i) => (
-            <span key={i} className="px-2 py-0.5 border border-[#b45309] rounded text-[11px] text-neutral-700">
-              {skill.name}
-            </span>
-          ))}
-        </div>
+        {format.skillsStyle === "chips" ? (
+          <div className="flex flex-wrap gap-1.5">
+            {techStack.flatMap((cat) => cat.skills).map((skill, i) => (
+              <span key={i} className="px-2 py-0.5 border border-[#b45309] rounded text-[11px] text-neutral-700">
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-0.5">
+            {techStack.map((cat, i) => (
+              <p key={i} className="text-neutral-700">
+                <span className="font-semibold text-neutral-900">{cat.category}:</span>{" "}
+                {cat.skills.map((skill) => skill.name).join(", ")}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
     ),
     education: (
@@ -88,7 +131,7 @@ const CVPage = () => {
         <h2 className="text-xs font-bold uppercase tracking-widest text-[#b45309] mb-2">Education</h2>
         <hr className="border-[#b45309] mb-3" />
         <div className="space-y-3">
-          {education.map((edu, i) => (
+          {education.filter((edu) => format.includeSecondarySchool || !/School/.test(edu.institution)).map((edu, i) => (
             <div key={i} className="flex justify-between items-start">
               <div>
                 <p className="font-bold text-neutral-900">{edu.institution}</p>
@@ -122,6 +165,9 @@ const CVPage = () => {
           .print-page { box-shadow: none !important; margin: 0 !important; padding: 24px !important; max-width: 100% !important; }
           a { color: inherit !important; text-decoration: none !important; }
           @page { margin: 0.6in; }
+          .cv-compact { font-size: 11px !important; line-height: 1.35 !important; }
+          .cv-compact .mb-5 { margin-bottom: 0.6rem !important; }
+          .cv-compact .space-y-5 > * + * { margin-top: 0.6rem !important; }
         }
       `}</style>
 
@@ -163,7 +209,7 @@ const CVPage = () => {
       </div>
 
       {/* CV Document */}
-      <div className="print-page max-w-[780px] mx-auto my-6 bg-white text-neutral-900 p-10 shadow-xl font-sans text-[13px] leading-relaxed">
+      <div className={`print-page max-w-[780px] mx-auto my-6 bg-white text-neutral-900 p-10 shadow-xl font-sans leading-relaxed ${format.compact ? "text-[12px] cv-compact" : "text-[13px]"}`}>
 
         {/* Header */}
         <div className="mb-6">
@@ -175,8 +221,8 @@ const CVPage = () => {
 
           {/* Contact */}
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-neutral-600 text-xs">
-            <span>{personalInfo.location}</span>
-            {format.showPhone && <span>{personalInfo.phone}</span>}
+            <span>{location}</span>
+            <span>{personalInfo.phone}</span>
             <a href={`mailto:${personalInfo.email}`} className="text-[#b45309]">{personalInfo.email}</a>
             <a href={personalInfo.github} className="text-[#b45309]">github.com/DevTaiwo18</a>
             <a href={personalInfo.linkedin} className="text-[#b45309]">LinkedIn</a>
